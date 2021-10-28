@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import BannerCard from '../BannerCard/BannerCard';
 import Header from '../Header/Header';
+import Offering from '../Offering/Offering';
 import './Home.css';
 
 const Home = () => {
@@ -11,9 +12,10 @@ const Home = () => {
                 <Header></Header>
                 <Banner></Banner>
                 <div className="container mx-auto">
-                <BannerCard></BannerCard>
+                    <BannerCard></BannerCard>
                 </div>
             </div>
+            <Offering></Offering>
         </div>
     );
 };

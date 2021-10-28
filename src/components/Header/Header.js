@@ -19,10 +19,11 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link href="#action1">Home</Nav.Link>
+                            <Nav.Link href="#action2">Foods</Nav.Link>
                             <Nav.Link href="#action2">About</Nav.Link>
                             <Nav.Link href="#action2">My Order</Nav.Link>
                             <Nav.Link href="#action2">All Orders</Nav.Link>
-                            <Nav.Link href="#action2">Log In</Nav.Link>
+                            <Nav.Link href="#action2"><i class="fas fa-user"></i><i class="fas fa-sign-out-alt"></i></Nav.Link>
 
                         </Nav>
                     </Navbar.Collapse>

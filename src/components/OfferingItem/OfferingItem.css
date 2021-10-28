@@ -1,0 +1,37 @@
+.offer-item-details h6{
+   font-weight: 700;
+   color: rgba(44, 44, 44, 0.74);
+   transition: 0.3s;
+}
+.offer-item-details h5{
+   font-weight: 700;
+   color: rgba(44, 44, 44, 0.74);
+   transition: 0.3s;
+   font-size: 14px;
+}
+.offer-item-details:hover.offer-item-details h6{
+    color: #F7B614;
+}
+.offering-img{
+    transition: 0.2s;
+}
+.offering-img:hover{
+    transform: scale(1.1);
+}
+.offer-item-details small{
+   font-weight: 600;
+   color: rgb(173, 173, 173);
+   margin: 8px 0;
+   font-size: 11px;
+   display: inline-block;
+}
+.offer-item-details p{
+    font-size: 8px;
+    color: #F7B614;
+
+}
+.offer-item-details button{
+    background-color: #F7B614;
+    color: white;
+    font-size: 10px;
+}
