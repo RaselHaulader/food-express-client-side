@@ -1,0 +1,6 @@
+.header-container{
+    border-bottom: 1px dashed rgba(124, 124, 124, 0.466);
+}
+.nav-link a{
+  color: white !important;
+}

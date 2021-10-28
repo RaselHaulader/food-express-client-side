@@ -1,0 +1,23 @@
+import React from 'react';
+import rider from '../../images/rider.png';
+import BannerCard from '../BannerCard/BannerCard';
+import './Banner.css'
+
+const Banner = () => {
+    return (
+        <div className="row container mx-auto text-white py-4 banner-details-container">
+            <div className="col-12 col-md-5  d-flex banner-details flex-column justify-content-center">
+                <div >
+                    <h1>Order Healthy <br /><span className="color-text">And Fresh Food</span> </h1>
+                    <p>Online food Delivery for hiring Food Foodota We appreciate your business, and we’ll do best to continue to give you the new kind.</p>
+                    <button className="btn rounded-pill px-4 p-2 border ">Read More</button>
+                </div>
+            </div>
+            <div className="col-12 col-md-7 d-flex align-items-end">
+                <img className="w-100" src={rider} alt="" />
+            </div>
+        </div>
+    );
+};
+
+export default Banner;

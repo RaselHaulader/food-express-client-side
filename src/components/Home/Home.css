@@ -1,0 +1,7 @@
+.banner-container{
+    background-image: url('../../images/blue.png');
+    background-size: cover;
+    background-position: left;
+    position: relative;
+    
+}
