@@ -14,7 +14,7 @@ const OfferingItem = ({ offer }) => {
                     <h6>{offer.title}</h6>
                     <small className="">{offer.info}</small>
                     <h5>{offer.price}</h5>
-                    <NavLink to='/order' className="btn order-btn border rounded-pill px-5 py-2">Order Now</NavLink>
+                    <NavLink to={`/order/${offer._id}`} className="btn order-btn border rounded-pill px-5 py-2">Order Now</NavLink>
                 </div>
             </div>
         </div>

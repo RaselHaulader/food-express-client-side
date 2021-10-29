@@ -10,7 +10,7 @@ import AuthProvider from './context/AuthProvider';
 import Register from './components/Register/Register';
 function App() {
   return (
-    <div >
+    
       <AuthProvider>
         <Router>
           <Switch>
@@ -26,7 +26,7 @@ function App() {
             <PrivateRoute exact path="/allOrders">
               <AllOrder></AllOrder>
             </PrivateRoute>
-            <PrivateRoute exact path="/order">
+            <PrivateRoute exact path="/order/:id">
              <Register></Register>
             </PrivateRoute>
             <Route path="/login">
@@ -35,7 +35,7 @@ function App() {
           </Switch>
         </Router>
       </AuthProvider>
-    </div>
+  
   );
 }
 
