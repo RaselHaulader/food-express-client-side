@@ -1,24 +1,18 @@
 import React from 'react';
+import { Redirect, Route } from 'react-router';
+import useAuth from '../hooks/useAuth';
+import Spinner from 'react-bootstrap/Spinner';
 
-const PrivateRoute = () => {
+const PrivateRoute = ({children, ...rest}) => {
+    const {user, loading} = useAuth()
+    if (loading) {
+      return  <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>
+    }
     return (
-        <div>
-                -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    line-height: inherit;
-    font-size: inherit;
-    box-sizing: border-box;
-    display: block;
-    background-position: center;
-    background-color: #ffffff;
-    color: #A0A0A0;
-    background-repeat: no-repeat;
-    clear: both;
-    position: relative;
-    background-image: url(http://webdesign-finder.com/sanchos/wp-content/uploads/2011/05/white-bg-car.jpg);
-        </div>
+        <Route {...rest} render={({location})=>
+        user?.displayName ? children : <Redirect to={{pathname: '/login', state : {from: location}}} />
+        }>
+        </Route>
     );
 };
 

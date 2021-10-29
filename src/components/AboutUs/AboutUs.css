@@ -1,0 +1,15 @@
+.about-logo{
+    border: 1px solid orange;
+    padding: 10px;
+}
+.about-item h5{
+  font-weight: bold;
+  color: rgba(53, 53, 53, 0.87);
+}
+.about-item p{
+    color: grey;
+    font-size: 12px;
+    line-height: 20px;
+}
+.about-us-container{
+}

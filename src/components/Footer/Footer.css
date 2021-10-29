@@ -1,0 +1,21 @@
+.footer-container{
+    background-color: #282932;
+}
+.call-number{
+    background-color: #F7B614;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.call-img img{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.footer-glob{
+    background-image: url('../../images/glob.png');
+    background-position: top;
+    background-size: cover;
+
+}
+.footer-info{
+    border-bottom: 1px dashed gainsboro;
+}

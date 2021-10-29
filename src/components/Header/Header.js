@@ -3,27 +3,34 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import logo from '../../images/logo.png';
+import logo2 from '../../images/logo-dark.png';
 import './Header.css'
+import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+import useAuth from '../../hooks/useAuth';
 
-const Header = () => {
+
+const Header = ({ variant }) => {
+    const { user, logOut } = useAuth()
     return (
         <div className="header-container container m-0 p-0 mx-auto">
-            <Navbar className="container  py-2 pt-3 mx-auto" expand="lg" variant="dark">
+            <Navbar className="container  py-2 pt-3 mx-auto" bg={variant=='light' && 'light'} expand="lg" variant={variant}>
                 <Container className="p-0 m-0">
-                    <Navbar.Brand href="#"><img src={logo} alt="" /></Navbar.Brand>
+                    <Navbar.Brand href="#"><img src={variant == 'dark' ? logo : logo2} alt="" /></Navbar.Brand>
                     <Navbar.Toggle className="text-white" aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
-                            className="ms-auto px-0 nav-link my-0 my-lg-0"
+                            className={`ms-auto px-0 ${variant == 'dark' ? 'nav-link-dark' : "nav-link-light"} my-0 my-lg-0`}
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Foods</Nav.Link>
-                            <Nav.Link href="#action2">About</Nav.Link>
-                            <Nav.Link href="#action2">My Order</Nav.Link>
-                            <Nav.Link href="#action2">All Orders</Nav.Link>
-                            <Nav.Link href="#action2"><i class="fas fa-user"></i><i class="fas fa-sign-out-alt"></i></Nav.Link>
+                            <NavLink activeStyle={{ color: "gold" }} to="/home">Home</NavLink>
+                            <HashLink to="/home#offers">Foods</HashLink>
+                            <HashLink to="/home#about">About</HashLink>
+                            <NavLink activeStyle={{ color: "gold" }} to="/myOrders">My Order</NavLink>
+                            <NavLink activeStyle={{ color: "gold" }} to="/allOrders">All Orders</NavLink>
+                            {!user?.displayName && <NavLink activeStyle={{ color: "gold" }} to="/login"><i className="fas fa-user"></i> </NavLink>}
+                            {user?.displayName &&<a><span className="fw-bold">{user.displayName}</span><i onClick={() => logOut()} style={{ cursor: "pointer" }} className="fas fa-sign-out-alt"></i></a>}
 
                         </Nav>
                     </Navbar.Collapse>

@@ -30,8 +30,12 @@
     color: #F7B614;
 
 }
-.offer-item-details button{
+.order-btn{
     background-color: #F7B614;
     color: white;
     font-size: 10px;
+}
+.offering-item{
+    box-shadow: 3px 3px 22px -10px gray;
+    border-radius: 10px;
 }
