@@ -22,18 +22,18 @@
    font-weight: 600;
    color: rgb(173, 173, 173);
    margin: 8px 0;
-   font-size: 11px;
+   font-size: 1px;
    display: inline-block;
 }
 .offer-item-details p{
-    font-size: 8px;
+    font-size: 13px;
     color: #F7B614;
 
 }
 .order-btn{
     background-color: #F7B614;
     color: white;
-    font-size: 10px;
+    font-size: 13px;
 }
 .offering-item{
     box-shadow: 3px 3px 22px -10px gray;

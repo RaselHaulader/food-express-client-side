@@ -8,6 +8,7 @@ import AllOrder from './components/AllOrder/AllOrder';
 import LogIn from './components/LogIn/LogIn';
 import AuthProvider from './context/AuthProvider';
 import Register from './components/Register/Register';
+import AddOffer from './components/AddOffer/AddOffer';
 function App() {
   return (
     
@@ -25,6 +26,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute exact path="/allOrders">
               <AllOrder></AllOrder>
+            </PrivateRoute>
+            <PrivateRoute exact path="/addOffer">
+              <AddOffer></AddOffer>
             </PrivateRoute>
             <PrivateRoute exact path="/order/:id">
              <Register></Register>

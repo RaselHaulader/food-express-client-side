@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AboutUs from '../AboutUs/AboutUs';
 import Banner from '../Banner/Banner';
 import BannerCard from '../BannerCard/BannerCard';
@@ -9,8 +9,18 @@ import Offering from '../Offering/Offering';
 import './Home.css';
 
 const Home = () => {
+    const [pos , setPos] = useState('')
+    useEffect(() => {
+        window.onscroll = () => {
+            setPos(window.pageYOffset)
+        }
+      }, []);
+      useEffect(()=>{
+          console.log(pos)
+      },[pos])
+
     return (
-        <div>
+        <div >
             <div className="banner-container pb-5">
                 <Header variant="dark"></Header>
                 <Banner></Banner>

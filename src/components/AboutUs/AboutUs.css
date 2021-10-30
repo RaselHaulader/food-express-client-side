@@ -8,8 +8,25 @@
 }
 .about-item p{
     color: grey;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
 }
-.about-us-container{
+
+.header-info{
+  color: orange;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.about-card-container{
+  box-shadow: 5px 5px 20px -10px gray;
+  margin: 20px 10px;
+  border-radius: 20px;
+}
+.about-info{
+  color: rgba(128, 128, 128, 0.705);
+  font-size: 14px;
+  text-align: center;
+  
 }

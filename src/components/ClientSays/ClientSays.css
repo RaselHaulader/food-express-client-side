@@ -2,3 +2,19 @@
     background-color: #F2F2F2;
 
 }
+.user-review-item{
+    box-shadow: 5px 5px 22px -10px grey;
+    border-radius: 15px;
+}
+.review-img{
+    box-shadow: 10px 10px 12px -15px grey;
+  
+}
+.review-message{
+    border-left: 3px solid #F7B614;
+}
+.review-message p{
+    font-size: 12px;
+    font-weight: 600;
+    color: grey;
+}

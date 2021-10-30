@@ -1,10 +1,23 @@
 .footer-container{
     background-color: #282932;
 }
+.footer-container p{
+    color: rgba(228, 228, 228, 0.911);
+}
+.footer-container p:hover{
+    cursor: pointer;
+}
 .call-number{
     background-color: #F7B614;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+.call-number p{
+    font-size: 14px;
+    font-weight: 700;
+}
+.call-number h6{
+    font-weight: 800;
 }
 .call-img img{
     border-top-left-radius: 10px;

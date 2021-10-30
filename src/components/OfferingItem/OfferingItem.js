@@ -13,7 +13,7 @@ const OfferingItem = ({ offer }) => {
                     <p className="pb-0 mb-0"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
                     <h6>{offer.title}</h6>
                     <small className="">{offer.info}</small>
-                    <h5>{offer.price}</h5>
+                    <h5>${offer.price}</h5>
                     <NavLink to={`/order/${offer._id}`} className="btn order-btn border rounded-pill px-5 py-2">Order Now</NavLink>
                 </div>
             </div>
