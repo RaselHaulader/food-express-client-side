@@ -3,14 +3,22 @@ import Header from '../Header/Header';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import CustomerOrder from '../CustomerOrder/CustomerOrder';
+import './CustomerOrders.css'
+import orderSvg from '../../images/userOrder.svg';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const CustomerOrders = () => {
+    const [load, setLoad] = useState(true)
     const [orders, setOrders] = useState([])
     const { user } = useAuth();
 
     useEffect(() => {
-        axios.put(`http://localhost:5000/userOrder/${user.email}`)
-            .then(result => setOrders(result.data))
+        axios.put(`https://blooming-ravine-44681.herokuapp.com/userOrder/${user.email}`)
+            .then(result => {
+                setLoad(false)
+                setOrders(result.data)
+            })
             .catch(err => console.log(err.message))
 
     }, [])
@@ -19,24 +27,38 @@ const CustomerOrders = () => {
     const handleCancel = (id) => {
         const condition = window.confirm('Are You Sure?')
         if (condition) {
-            axios.delete(`http://localhost:5000/order/${id}`)
-                .then(res =>{
-                    if (res.data.deletedCount>0) {
-                        const rest = orders.filter(order=> order._id !== id)
+            axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        const rest = orders.filter(order => order._id !== id)
                         setOrders(rest)
                     }
-                    console.log(res)})
+                    console.log(res)
+                })
                 .catch(err => console.log(err))
         }
     }
     return (
-        <div>
-            <Header variant="light"></Header>
-            <h3 className="text-center my-5">My orders</h3>
-            <div>
-                {
-                    orders.map(order => <CustomerOrder handleCancel={handleCancel} order={order} key={order._id}></CustomerOrder>)
-                }
+        <div className="dark-body">
+            <div className="glob-body">
+                <Header variant="light"></Header>
+                <h3 className="text-center mb-4 mt-3 text-uppercase fw-bold">My <span className="color-text">orders</span></h3>
+                <div className="w-100 px-0 mx-0 row">
+                    <div className="col-12 col-md-5 px-5">
+                        <div className=" text-white  text-center pt-2 userOrders-info-container pb-4">
+                            <img className="w-100" src={orderSvg} alt="" />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-7 ">
+                        <div className="userOrders-container pb-4 px-2">
+                            {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
+
+                            {
+                                orders.map(order => <CustomerOrder handleCancel={handleCancel} order={order} key={order._id}></CustomerOrder>)
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

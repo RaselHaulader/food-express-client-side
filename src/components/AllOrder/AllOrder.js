@@ -2,20 +2,28 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AllOrderItem from '../AllOrderItem/AllOrderItem';
 import Header from '../Header/Header';
+import './AllOrder.css';
+import Spinner from 'react-bootstrap/Spinner';
+
+
 
 const AllOrder = () => {
     const [orders, setOrders] = useState([])
-
+    const [load, setLoad] = useState(true)
+    
     useEffect(() => {
-        axios.get('http://localhost:5000/allOrders')
-            .then(res => setOrders(res.data))
+        axios.get('https://blooming-ravine-44681.herokuapp.com/allOrders')
+            .then(res => {
+                setOrders(res.data)
+                setLoad(false)
+            })
             .catch(err => console.log(err.message))
     }, []);
 
     const handleDelete = id => {
         const condition = window.confirm('Are You Sure?')
         if (condition) {
-            axios.delete(`http://localhost:5000/order/${id}`)
+            axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         const rest = orders.filter(order => order._id !== id)
@@ -28,9 +36,9 @@ const AllOrder = () => {
     }
 
     const handleApproved = id => {
-        console.log(id)
+        console.log(orders)
 
-        axios.put(`http://localhost:5000/approve/${id}`)
+        axios.put(`https://blooming-ravine-44681.herokuapp.com/approve/${id}`)
             .then(res => {
                 if (res.data.acknowledged) {
                     const approvedItem = orders.filter(order => order._id === id)
@@ -46,9 +54,11 @@ const AllOrder = () => {
             .catch(err => console.log(err))
     }
     return (
-        <div>
+        <div className="all-order-container1">
             <Header variant="light"></Header>
-            <h3>All orders</h3>
+            <h3 className="text-center text-uppercase fw-bold my-5">Manage All <span className="color-text">orders</span></h3>
+            {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
+
             {
                 orders.map(order => <AllOrderItem handleApproved={handleApproved} key={order._id} handleDelete={handleDelete} order={order} ></AllOrderItem>)
             }

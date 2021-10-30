@@ -1,3 +1,31 @@
+
 .addOffer span{
    color: red;
+}
+.addOffer input, .addOffer textarea{
+   border: none;
+   border-bottom: 2px solid orange;
+   font-weight: 700;
+   color:  #F7B614;
+   outline: none;
+}
+.add-offer-container{
+   margin-top: 50px;
+   width: 90%;
+   box-shadow: 5px 5px 29px -10px grey ;
+   border-radius: 20px;
+}
+.addOffer input::-webkit-input-placeholder,.addOffer textarea::-webkit-input-placeholder{
+   color: rgba(255, 136, 0, 0.425);
+}
+.add-btn{
+   background-color:  #F7B614;
+   color: white !important;
+}
+
+@media screen and (min-width: 760px) {
+   .add-offer-container{
+      margin-top: 50px;
+      width: 60%;
+   }
 }

@@ -1,5 +1,6 @@
 .header-container{
     border-bottom: 1px dashed rgba(124, 124, 124, 0.466);
+    transition: 0.3s;
 }
 .nav-link-dark a , .nav-link-dark i, .nav-link-dark span{
   color: rgba(240, 236, 236, 0.959) ;

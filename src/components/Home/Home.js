@@ -9,20 +9,29 @@ import Offering from '../Offering/Offering';
 import './Home.css';
 
 const Home = () => {
-    const [pos , setPos] = useState('')
+    const [variant, setVariant] = useState('dark')
+    const [type, setType] = useState(false)
+    const [pos, setPos] = useState('')
     useEffect(() => {
         window.onscroll = () => {
             setPos(window.pageYOffset)
         }
-      }, []);
-      useEffect(()=>{
-          console.log(pos)
-      },[pos])
+    }, []);
+    useEffect(() => {
+        if (pos > 300) {
+            setType(true)
+            setVariant('light')
+        } else {
+            setType(false)
+            setVariant('dark')
+        }
+
+    }, [pos])
 
     return (
         <div >
             <div className="banner-container pb-5">
-                <Header variant="dark"></Header>
+                <Header variant={variant} type={type}></Header>
                 <Banner></Banner>
                 <div className="container mx-auto">
                     <BannerCard></BannerCard>

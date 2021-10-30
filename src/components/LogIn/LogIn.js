@@ -7,7 +7,7 @@ const LogIn = () => {
     const { googlSignIn, user, setUser } = useAuth()
     const location = useLocation()
     const history = useHistory()
-    const redirect_uri = location.state?.from
+    const redirect_uri = location.state?.from || '/'
     const handleGoogleSignIn = () => {
         googlSignIn()
             .then(res => {
@@ -38,7 +38,7 @@ https://i.ibb.co/m4kpszw/sushi-06-480x480.jpg
 
 */
 
-const data = [
+/* const data = [
 
     {
         img: 'https://i.ibb.co/1zdTrCm/pizza-drinks.png',
@@ -76,4 +76,4 @@ const data = [
         info: 'Take a test of Japani food from your home just order and feel the test.',
         price:''
     },
-]
+] */

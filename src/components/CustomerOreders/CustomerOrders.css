@@ -1,0 +1,13 @@
+.userOrders-container{
+    overflow-y: scroll;
+    height: 600px;
+}
+.userOrders-container::-webkit-scrollbar {
+    display: none;
+  }
+.userOrders-info-container{
+    border-radius: 30px;
+}
+  @media screen and (min-width: 480px) {
+     
+  }

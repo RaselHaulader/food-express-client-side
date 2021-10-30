@@ -1,3 +1,44 @@
 .register-form span{
     color: red;
 }
+.dark-body{
+    background-image: url('../../images/white-bg-car.jpg');
+}
+.register-container{
+   width:70%;
+}
+.register-details{
+    background-color: #000000ce;
+}
+.register-form{
+    background-color: #ffffffb9;
+}
+.register-form input,.register-form textarea{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(209, 129, 37);
+    color:  #F7B614;
+    font-weight: 700;
+    outline: none;
+}
+
+.register-form input::-webkit-input-placeholder, .register-form textarea::-webkit-input-placeholder{
+    color: rgba(241, 160, 10, 0.356);
+}
+.placeOrder-btn{
+    background-color:  #F7B614 !important;
+    border-radius: 10px;
+    padding: 10px 0;
+    color: white !important;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .dark-body{
+       min-height: 100vh;
+    }
+    .glob-body{
+        min-height: 100vh;
+    }
+  }

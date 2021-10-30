@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
+import './AllOrderItem.css'
 
-const AllOrderItem = ({ order, handleDelete ,handleApproved}) => {
-    const [status, setStatus] = useState(false);
 
-    const handleUpdateClick =id=>{
+const AllOrderItem = ({ order, handleDelete, handleApproved }) => {
+
+    const handleUpdateClick = id => {
         handleApproved(id)
-        setStatus(true)
     }
     return (
-        <div>
-            <div>
-                <div className="row w-75 mx-auto text-center py-4 my-3 bg-info">
-                    <div className="col-3">
-                        <img className="w-75 mx-auto" src={order.img} alt="" />
-                    </div>
-                    <div className="col-3">
-                        <h5>{order.name}</h5>
-                        <h5>{order.food}</h5>
-                        <p>{order.date} {order.price}</p>
-                        <p><small>{order.address}</small></p>
-                    </div>
-                    <div className="col-2">
-                        <p>{order.status}</p>
-                    </div>
-                    <div className="col-2">
-                        <button disabled={order.status!=='pending'} onClick={() => handleUpdateClick(order._id)}>Approve</button>
-                    </div>
-                    <div className="col-2">
-                        <button onClick={() => handleDelete(order._id)}>Delete Order</button>
-                    </div>
-                </div>
+        <div className="row w-75 mx-auto my-3 all-order-container">
+            <div className="col-md-3 col-12 ms-0 ps-0">
+                <img className="ms-0 mx-auto allOrderImg" src={order.img} alt="" />
+            </div>
+            <div className="col-md-3 col-12 d-flex flex-column justify-content-center">
+                <p className="fw-bold text-secondary py-0 my-1 text-warning"> Name: {order.name}</p>
+                <p className="fw-bold text-secondary py-0 my-1">Food: {order.food}</p>
+                <p className="fw-bold text-secondary py-0 my-1">Date: {order.date} Price: ${order.price}</p>
+                <p className="fw-bold text-secondary py-0 my-1">Address: {order.address}</p>
+                <p className="fw-bold text-secondary py-0 my-1">Description: {order.description}</p>
+            </div>
+            <div className="col-md-2 col-12 d-flex flex-column justify-content-center">
+                <p className={order.status === 'pending' ? "text-danger  fw-bold" : 'text-info fw-bold'}>{order.status}</p>
+            </div>
+            <div className="col-md-2 col-12 d-flex flex-column justify-content-center">
+                <button className="btn border btn-primary" disabled={order.status !== 'pending'} onClick={() => handleUpdateClick(order._id)}>Approve</button>
+            </div>
+            <div className="col-md-2 col-12 d-flex flex-column justify-content-center">
+                <button className="btn border allOrder-delete-btn" onClick={() => handleDelete(order._id)}>Delete Order</button>
             </div>
         </div>
     );

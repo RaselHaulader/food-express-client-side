@@ -3,38 +3,52 @@ import Header from '../Header/Header';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import './AddOffer.css';
+import addOrderSvg from '../../images/addOrder2.svg'
 
 const AddOffer = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
- 
+
     const onSubmit = data => {
         console.log(data);
-        axios.post("http://localhost:5000/addOffer", data)
-        .then(res=> console.log(res))
-        .catch(err=> console.log(err.message))
-       }
-     
+        axios.post("https://blooming-ravine-44681.herokuapp.com/addOffer", data)
+            .then(res => {
+                if (res.data.acknowledged == true) {
+                    alert("SuccessFully added this Items")
+                }
+                console.log(res)})
+            .catch(err => console.log(err.message))
+    }
+
     return (
-        <div>
+        <div >
             <Header variant={'light'}></Header>
-            <h3 className="text-center">Add offer</h3>
+            <div className="d-flex justify-content-center">
+                <div className="add-offer-container py-5">
+                    <h3 className=" my-2 text-center text-uppercase text-secondary fw-bold ">Add<span className="color-text"> Items</span></h3>
+                    <hr className="w-25 mx-auto mb-5" />
+                    <div className="row w-100 px-0 mx-0">
+                        <div className=" mx-auto col-12 col-md-6">
+                            <img className="w-100 mx-auto" src={addOrderSvg} alt="" />
+                        </div>
+                        <form className="d-flex py-3 col-12 col-md-6 text-center addOffer flex-column" onSubmit={handleSubmit(onSubmit)}>
 
-            <form className="d-flex text-center addOffer flex-column w-50 mx-auto"  onSubmit={handleSubmit(onSubmit)}>
+                            <input placeholder="Title" {...register("title", { required: true })} />
+                            {errors.title && <span>This field is required</span>} <br />
 
-                <input placeholder="Title" {...register("title", { required: true })} />
-                {errors.title && <span>This field is required</span>} <br />
-                
-                <input placeholder="Price" {...register("price", { required: true })} />
-                {errors.price && <span>This field is required</span>} <br />
-                
-                <textarea maxLength="90" placeholder="Description ( maxlength 90 characters )" {...register("info", { required: true })} />
-                {errors.info && <span>This field is required</span>} <br />
-                
-                <input placeholder="Image Url" {...register("img", { required: true })} />
-                {errors.img && <span>This field is required</span>} <br />
+                            <input placeholder="Price" {...register("price", { required: true })} />
+                            {errors.price && <span>This field is required</span>} <br />
 
-                <input type="submit" />
-            </form>
+                            <textarea maxLength="90" placeholder="Description ( maxlength 90 characters )" {...register("info", { required: true })} />
+                            {errors.info && <span>This field is required</span>} <br />
+
+                            <input placeholder="Image Url" {...register("img", { required: true })} />
+                            {errors.img && <span>This field is required</span>} <br />
+
+                            <input className="add-btn" type="submit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </div>
     );

@@ -1,0 +1,10 @@
+.user-order-container{
+    box-shadow: 5px 3px 22px -10px rgb(92, 91, 91);
+    border-radius: 20px;
+}
+.user-order-container button{
+    background-color: rgba(240, 187, 88, 0.993);
+    border: none;
+    border-radius: 5px;
+    color: rgb(80, 79, 79);
+}

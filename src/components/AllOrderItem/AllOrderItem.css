@@ -1,0 +1,20 @@
+.allOrderImg{
+    width: 200px;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.all-order-container{
+    box-shadow: 5px 5px 29px -10px grey;
+    border-radius: 10px;
+    text-align: center;
+}
+.allOrder-delete-btn{
+    background-color:#F7B614;
+    color: white;
+}
+@media screen and (min-width: 760px) {
+    .all-order-container{
+        text-align: start;
+    }
+  }

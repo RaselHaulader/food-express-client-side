@@ -10,14 +10,23 @@ import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../hooks/useAuth';
 
 
-const Header = ({ variant }) => {
-   
+const Header = ({ variant, type }) => {
+
     const { user, logOut } = useAuth()
+
+
+
+    const scrollWithOffset = (el,yOffset) => {
+        const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+        
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+    }
+
     return (
-        <div  className="header-container container m-0 p-0 mx-auto">
-            <Navbar className="container  py-2 pt-3 mx-auto" bg={variant == 'light' && 'light'} expand="lg" variant={variant}>
+        <div id="home" className="header-container container m-0 p-0 mx-auto">
+            <Navbar fixed={type && "top"} className="container  py-2 pt-3 mx-auto" bg={variant == 'light' && 'light'} expand="lg" variant={variant}>
                 <Container className="p-0 m-0">
-                    <Navbar.Brand href="#"><img src={variant == 'dark' ? logo : logo2} alt="" /></Navbar.Brand>
+                    <Navbar.Brand > <HashLink scroll={el => scrollWithOffset(el,0)} activeStyle={{ color: "gold" }} to="/home#home"> <img src={variant == 'dark' ? logo : logo2} alt="" /></HashLink></Navbar.Brand>
                     <Navbar.Toggle className="text-white" aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -25,19 +34,19 @@ const Header = ({ variant }) => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <NavLink activeStyle={{ color: "gold" }} to="/home">Home</NavLink>
-                            <HashLink to="/home#offers">Foods</HashLink>
-                            <HashLink to="/home#about">About</HashLink>
+                            <HashLink scroll={el => scrollWithOffset(el,0)} activeStyle={{ color: "gold" }} to="/home#home">Home</HashLink>
+                            <HashLink scroll={el => scrollWithOffset(el,-110)} to="/home#offers">Foods</HashLink>
+                            <HashLink scroll={el => scrollWithOffset(el,-110)} to="/home#about">About</HashLink>
                             <NavLink activeStyle={{ color: "gold" }} to="/myOrders">My Order</NavLink>
 
                             {
-                              user?.displayName &&  <><NavLink activeStyle={{ color: "gold" }} to="/allOrders">Manage All Orders</NavLink>
-                                    <NavLink activeStyle={{ color: "gold" }} to="/addOffer">Add An Offer</NavLink></>
+                                user?.displayName && <><NavLink activeStyle={{ color: "gold" }} to="/allOrders">Manage All Orders</NavLink>
+                                    <NavLink activeStyle={{ color: "gold" }} to="/addOffer">Add An Items</NavLink></>
                             }
 
                             {!user?.displayName && <NavLink activeStyle={{ color: "gold" }} to="/login"><i className="fas fa-user"></i> </NavLink>}
                             {user?.displayName && <a><span className="fw-bold">{user.displayName}</span><i onClick={() => logOut()} style={{ cursor: "pointer" }} className="fas fa-sign-out-alt"></i></a>}
-                             
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
