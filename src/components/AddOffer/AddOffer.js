@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import './AddOffer.css';
 import addOrderSvg from '../../images/addOrder2.svg'
+import Footer from '../Footer/Footer';
 
 const AddOffer = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         console.log(data);
@@ -14,16 +15,18 @@ const AddOffer = () => {
             .then(res => {
                 if (res.data.acknowledged == true) {
                     alert("SuccessFully added this Items")
+                    reset();
                 }
-                console.log(res)})
+                console.log(res)
+            })
             .catch(err => console.log(err.message))
     }
 
     return (
         <div >
             <Header variant={'light'}></Header>
-            <div className="d-flex justify-content-center">
-                <div className="add-offer-container py-5">
+            <div className="d-flex justify-content-center pb-5 mb-5">
+                <div className="add-offer-container py-5 mb-5">
                     <h3 className=" my-2 text-center text-uppercase text-secondary fw-bold ">Add<span className="color-text"> Items</span></h3>
                     <hr className="w-25 mx-auto mb-5" />
                     <div className="row w-100 px-0 mx-0">
@@ -49,7 +52,7 @@ const AddOffer = () => {
                     </div>
                 </div>
             </div>
-
+            <Footer></Footer>
         </div>
     );
 };

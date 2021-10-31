@@ -9,7 +9,7 @@ const CustomerOrder = ({ order, handleCancel }) => {
         <div>
             <div className="user-order-container mb-3 mt-3 p-2">
                 <div className="row  mx-auto text-center text-secondary my-2">
-                    <div className="col-2 border  d-flex flex-column  justify-content-center">
+                    <div className="col-12 col-md-2 py-3  border  d-flex flex-column  justify-content-center">
                         <img width="50px" rounded className="mx-auto" src={order.img} alt="" />
                     </div>
                     <div className="col-6 px-0 mx-0 d-flex flex-column justify-content-center">

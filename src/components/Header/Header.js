@@ -2,8 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import logo from '../../images/logo.png';
-import logo2 from '../../images/logo-dark.png';
+import logo2 from '../../images/logo2.png';
 import './Header.css'
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -26,7 +25,7 @@ const Header = ({ variant, type }) => {
         <div id="home" className="header-container container m-0 p-0 mx-auto">
             <Navbar fixed={type && "top"} className="container  py-2 pt-3 mx-auto" bg={variant == 'light' && 'light'} expand="lg" variant={variant}>
                 <Container className="p-0 m-0">
-                    <Navbar.Brand > <HashLink scroll={el => scrollWithOffset(el,0)} activeStyle={{ color: "gold" }} to="/home#home"> <img src={variant == 'dark' ? logo : logo2} alt="" /></HashLink></Navbar.Brand>
+                    <Navbar.Brand > <HashLink scroll={el => scrollWithOffset(el,0)} activeStyle={{ color: "gold" }} to="/home#home"> <span className="d-flex"><img src={logo2} alt="" /><h4 className={variant == 'light' ? "text-dark logo-text":"text-white logo-text"}>FOOD <span className="color-text">EXPRESS</span></h4></span></HashLink></Navbar.Brand>
                     <Navbar.Toggle className="text-white" aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -45,7 +44,7 @@ const Header = ({ variant, type }) => {
                             }
 
                             {!user?.displayName && <NavLink activeStyle={{ color: "gold" }} to="/login"><i className="fas fa-user"></i> </NavLink>}
-                            {user?.displayName && <a><span className="fw-bold">{user.displayName}</span><i onClick={() => logOut()} style={{ cursor: "pointer" }} className="fas fa-sign-out-alt"></i></a>}
+                            {user?.displayName && <a><span className="fw-bold text-warning">{user.displayName}</span><i onClick={() => logOut()} style={{ cursor: "pointer" }} className="fas text-warning fa-sign-out-alt"></i></a>}
 
                         </Nav>
                     </Navbar.Collapse>

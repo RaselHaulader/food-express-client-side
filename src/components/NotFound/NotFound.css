@@ -1,0 +1,7 @@
+.not-found{
+    background-image: url('../../images/404.png');
+    background-position: top;
+    background-size: inherit;
+    background-repeat: no-repeat;
+    height: 100vh;
+}

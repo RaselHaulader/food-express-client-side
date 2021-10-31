@@ -1,0 +1,12 @@
+.google-signIn{
+    box-shadow: 5px 5px 25px -10px grey;
+    border-radius: 10px;
+    width: 300px ;
+    margin: auto;
+    cursor: pointer;
+}
+.google-signIn2{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+   
+}

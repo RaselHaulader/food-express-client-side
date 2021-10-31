@@ -2,9 +2,11 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Header/Header';
+import googleLogo from '../../images/google-logo.png';
+import './LogIn.css';
 
 const LogIn = () => {
-    const { googlSignIn, user, setUser } = useAuth()
+    const { googlSignIn, setUser } = useAuth()
     const location = useLocation()
     const history = useHistory()
     const redirect_uri = location.state?.from || '/'
@@ -19,16 +21,23 @@ const LogIn = () => {
     return (
         <div className="text-center">
             <Header variant="light"></Header>
-            <p>{user?.displayName}</p>
-            <h3>Login with Google</h3>
-            <button onClick={handleGoogleSignIn}>Sign In with Google</button>
+            <div>
+                <div onClick={handleGoogleSignIn} className="google-signIn  rounded-pill my-5 d-flex">
+                    <div className="w-25">
+                        <img className="w-100" src={googleLogo} alt="" />
+                    </div>
+                    <div className="w-75  google-signIn2 justify-content-center  d-flex align-items-center">
+                        <h5>Sign In with Google</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
 
 export default LogIn;
 
-/* 
+/*
 https://i.ibb.co/1zdTrCm/pizza-drinks.png
 https://i.ibb.co/tKwM3VV/burger-drinks.png
 https://i.ibb.co/dB2wGxm/chicken.jpg

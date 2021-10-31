@@ -58,8 +58,8 @@ const Register = () => {
                 <div className="glob-body">
                     <Header variant="light"></Header>
                     <h3 className="text-center fw-bold mt-4">PLACE YOUR <span className="color-text"> ORDER</span></h3>
-                    <div className=" mx-auto  row mt-5 register-container">
-                        <div className="col-12 d-flex flex-column align-items-center justify-content-around  col-md-5 register-details text-white text-center">
+                    <div className=" mx-auto pb-5 row mt-5 register-container">
+                        <div className="col-12 d-flex flex-column pt-3 align-items-center justify-content-around  col-md-5 register-details text-white text-center">
                             {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
 
                             <img className="w-50 rounded-circle" src={offer.img} alt="" />
@@ -67,7 +67,7 @@ const Register = () => {
                             <p className="w-50">{offer.info}</p>
                             <h5>Price: $ {offer.price}</h5>
                         </div>
-                        <form className="col-12 col-md-7 py-4 register-form d-flex h-100 text-center flex-column mx-auto" onSubmit={handleSubmit(onSubmit)}>
+                        <form className="col-12 col-md-7 pt-4 register-form d-flex h-100 text-center flex-column mx-auto" onSubmit={handleSubmit(onSubmit)}>
                             <input defaultValue={offer.title} readOnly {...register("food")} />  <br />
 
                             <input defaultValue={user.displayName} {...register("name")} /> <br />

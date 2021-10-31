@@ -6,6 +6,7 @@ import CustomerOrder from '../CustomerOrder/CustomerOrder';
 import './CustomerOrders.css'
 import orderSvg from '../../images/userOrder.svg';
 import Spinner from 'react-bootstrap/Spinner';
+import Footer from '../Footer/Footer';
 
 
 const CustomerOrders = () => {
@@ -45,7 +46,7 @@ const CustomerOrders = () => {
                 <h3 className="text-center mb-4 mt-3 text-uppercase fw-bold">My <span className="color-text">orders</span></h3>
                 <div className="w-100 px-0 mx-0 row">
                     <div className="col-12 col-md-5 px-5">
-                        <div className=" text-white  text-center pt-2 userOrders-info-container pb-4">
+                        <div className=" text-white  text-center pt-5 userOrders-info-container pb-4">
                             <img className="w-100" src={orderSvg} alt="" />
                         </div>
                     </div>
@@ -60,6 +61,7 @@ const CustomerOrders = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

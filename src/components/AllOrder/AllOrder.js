@@ -4,13 +4,14 @@ import AllOrderItem from '../AllOrderItem/AllOrderItem';
 import Header from '../Header/Header';
 import './AllOrder.css';
 import Spinner from 'react-bootstrap/Spinner';
+import Footer from '../Footer/Footer';
 
 
 
 const AllOrder = () => {
     const [orders, setOrders] = useState([])
     const [load, setLoad] = useState(true)
-    
+
     useEffect(() => {
         axios.get('https://blooming-ravine-44681.herokuapp.com/allOrders')
             .then(res => {
@@ -54,14 +55,17 @@ const AllOrder = () => {
             .catch(err => console.log(err))
     }
     return (
-        <div className="all-order-container1">
-            <Header variant="light"></Header>
-            <h3 className="text-center text-uppercase fw-bold my-5">Manage All <span className="color-text">orders</span></h3>
-            {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
+        <div>
+            <div className="all-order-container1 mb-5 pb-5">
+                <Header variant="light"></Header>
+                <h3 className="text-center text-uppercase fw-bold my-5">Manage All <span className="color-text">orders</span></h3>
+                {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
 
-            {
-                orders.map(order => <AllOrderItem handleApproved={handleApproved} key={order._id} handleDelete={handleDelete} order={order} ></AllOrderItem>)
-            }
+                {
+                    orders.map(order => <AllOrderItem handleApproved={handleApproved} key={order._id} handleDelete={handleDelete} order={order} ></AllOrderItem>)
+                }
+            </div>
+            <Footer></Footer>
         </div>
     );
 };
