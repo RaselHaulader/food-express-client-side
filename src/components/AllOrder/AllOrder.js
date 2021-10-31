@@ -14,6 +14,7 @@ const AllOrder = () => {
     const [load, setLoad] = useState(true)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios.get('https://blooming-ravine-44681.herokuapp.com/allOrders')
             .then(res => {
                 setOrders(res.data)
@@ -23,6 +24,7 @@ const AllOrder = () => {
     }, []);
 
     const handleDelete = id => {
+        // sweet alert
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -32,6 +34,7 @@ const AllOrder = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
+                    // delete items from all order
                     axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
                         .then(res => {
                             if (res.data.deletedCount > 0) {
@@ -75,7 +78,7 @@ const AllOrder = () => {
             <div className="all-order-container1 mb-5 pb-5">
                 <Header variant="light"></Header>
                 <h3 className="text-center text-uppercase fw-bold my-5">Manage All <span className="color-text">orders</span></h3>
-                {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
+                {load && <div className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></div>}
 
                 {
                     orders.map(order => <AllOrderItem handleApproved={handleApproved} key={order._id} handleDelete={handleDelete} order={order} ></AllOrderItem>)

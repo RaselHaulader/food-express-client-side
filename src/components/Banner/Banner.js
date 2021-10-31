@@ -1,7 +1,6 @@
 import React from 'react';
 import rider from '../../images/rider.png';
-import BannerCard from '../BannerCard/BannerCard';
-import './Banner.css'
+import './Banner.css';
 
 const Banner = () => {
     return (
@@ -13,7 +12,7 @@ const Banner = () => {
                     <button className="btn rounded-pill px-4 p-2 border ">Read More</button>
                 </div>
             </div>
-            <div className="col-12 col-md-7 d-flex align-items-end">
+            <div data-aos="fade-left"  data-aos-easing="ease-linear" data-aos-once="false" data-aos-duration="1000" className="col-12 col-md-7 d-flex align-items-end">
                 <img className="w-100" src={rider} alt="" />
             </div>
         </div>

@@ -6,11 +6,13 @@ import './AboutUs.css';
 
 const AboutUs = () => {
     return (
-        <div id="about" className="about-us-container px-5 mt-5 ">
+        <div   id="about" className="about-us-container px-5 mt-5 ">
             <div className="about-card-container  pb-5 ">
                 <h3 className="text-center pt-5 mt-5 fw-bold text-uppercase">How We <span className="color-text2">Work</span></h3>
                 <p className="header-info">About us</p>
-                <p className="about-info mb-5 w-50 mx-auto">We are committed to provide food delivery<br/> to all our register client. Our Register client choose their food from their favourite restaurant and we reached those to their door step.</p>
+                <div >
+                    <p className="about-info mb-5 w-50 mx-auto">We are committed to provide food delivery<br /> to all our register client. Our Register client choose their food from their favourite restaurant and we reached those to their door step.</p>
+                </div>
                 <div className="row  container mx-auto text-center">
                     <div className="col-12 col-md-4 ">
                         <div className="about-item">

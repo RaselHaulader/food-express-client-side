@@ -16,6 +16,7 @@ const CustomerOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios.put(`https://blooming-ravine-44681.herokuapp.com/userOrder/${user.email}`)
             .then(result => {
                 setLoad(false)
@@ -27,6 +28,7 @@ const CustomerOrders = () => {
 
 
     const handleCancel = (id) => {
+        // sweat alert confirmation
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -36,6 +38,7 @@ const CustomerOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
+                    // delete user order item by user cancel click
                     axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
                         .then(res => {
                             if (res.data.deletedCount > 0) {
@@ -55,19 +58,19 @@ const CustomerOrders = () => {
             });
     }
     return (
-        <div className="dark-body">
+        <div  className="dark-body">
             <div className="glob-body">
                 <Header variant="light"></Header>
                 <h3 className="text-center mb-4 mt-3 text-uppercase fw-bold">My <span className="color-text">orders</span></h3>
                 <div className="w-100 px-0 mx-0 row">
-                    <div className="col-12 col-md-5 px-5">
+                    <div data-aos="fade-right" className="col-12 col-md-5 px-5">
                         <div className=" text-white  text-center pt-5 userOrders-info-container pb-4">
                             <img className="w-100" src={orderSvg} alt="" />
                         </div>
                     </div>
                     <div className="col-12 col-md-7 ">
                         <div className="userOrders-container pb-4 px-2">
-                            {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
+                            {load && <div className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></div>}
 
                             {
                                 orders.map(order => <CustomerOrder handleCancel={handleCancel} order={order} key={order._id}></CustomerOrder>)

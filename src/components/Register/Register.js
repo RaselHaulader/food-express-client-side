@@ -18,6 +18,7 @@ const Register = () => {
     const { user } = useAuth();
     console.log(id)
     useEffect(() => {
+        window.scrollTo(0, 0)
         fetch(`https://blooming-ravine-44681.herokuapp.com/offers/${id}`)
             .then(res => res.json())
             .then(data => {
@@ -29,12 +30,12 @@ const Register = () => {
     }, [])
 
     const onSubmit = data => {
-        console.log(offer.title)
+        // set some info from react hook and offer data
         data.img = offer.img;
         data.price = offer.price;
         data.food = offer.title;
         data.status = "pending";
-        console.log(data);
+        // post user order item to database
         fetch(`https://blooming-ravine-44681.herokuapp.com/postOrder`, {
             method: 'POST',
             headers: { "content-type": "application/json" },
@@ -46,12 +47,11 @@ const Register = () => {
                     swal("Good job!", "Your order has been placed", "success");
                     reset()
                 }
-                console.log(data)
             })
     }
 
     const curr = new Date();
-    curr.setDate(curr.getDate() + 1);
+    curr.setDate(curr.getDate());
     const date = curr.toISOString().substr(0, 10);
     return (
         <div>
@@ -60,9 +60,9 @@ const Register = () => {
                     <Header variant="light"></Header>
                     <h3 className="text-center fw-bold mt-4">PLACE YOUR <span className="color-text"> ORDER</span></h3>
                     <div className=" mx-auto pb-5 row mt-5 register-container">
-                        <div className="col-12 d-flex flex-column pt-3 align-items-center justify-content-around  col-md-5 register-details text-white text-center">
+                        <div data-aos="zoom-in" className="col-12 d-flex flex-column pt-3 align-items-center justify-content-around  col-md-5 register-details text-white text-center">
                             {load && <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>}
-
+                             
                             <img className="w-50 rounded-circle" src={offer.img} alt="" />
                             <h3 className="fw-bold">{offer.title}</h3>
                             <p className="w-50">{offer.info}</p>

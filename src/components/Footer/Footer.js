@@ -37,7 +37,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <p className="my-2 fw-bold">Email: contact@info.com</p>
-                    <h3 className="my-2 fw-bold"><i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-whatsapp"></i> <i class="fab fa-twitter"></i></h3>
+                    <h3 className="my-2 fw-bold"><i className="fab fa-facebook"></i> <i className="fab fa-instagram"></i> <i className="fab fa-whatsapp"></i> <i className="fab fa-twitter"></i></h3>
                     </div>
                 </div>
                 <div className="container mx-auto ">

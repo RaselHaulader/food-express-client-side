@@ -10,9 +10,11 @@ import AuthProvider from './context/AuthProvider';
 import Register from './components/Register/Register';
 import AddOffer from './components/AddOffer/AddOffer';
 import NotFound from './components/NotFound/NotFound';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 function App() {
   return (
-    
       <AuthProvider>
         <Router>
           <Switch>

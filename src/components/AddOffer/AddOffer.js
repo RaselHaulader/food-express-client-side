@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -8,17 +8,19 @@ import Footer from '../Footer/Footer';
 import swal from 'sweetalert';
 
 const AddOffer = () => {
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+       // post new data to mongodb via node with axios
         axios.post("https://blooming-ravine-44681.herokuapp.com/addOffer", data)
             .then(res => {
                 if (res.data.acknowledged == true) {
                     swal("Good job!", "This Item has been added!", "success");
                     reset();
                 }
-                console.log(res)
             })
             .catch(err => console.log(err.message))
     }
@@ -30,7 +32,7 @@ const AddOffer = () => {
                 <div className="add-offer-container py-5 mb-5">
                     <h3 className=" my-2 text-center text-uppercase text-secondary fw-bold ">Add<span className="color-text"> Items</span></h3>
                     <hr className="w-25 mx-auto mb-5" />
-                    <div className="row w-100 px-0 mx-0">
+                    <div data-aos="fade-up" className="row w-100 px-0 mx-0">
                         <div className=" mx-auto col-12 col-md-6">
                             <img className="w-100 mx-auto" src={addOrderSvg} alt="" />
                         </div>

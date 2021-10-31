@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const PrivateRoute = ({children, ...rest}) => {
     const {user, loading} = useAuth()
+    // check user logged in or not
     if (loading) {
       return  <p className="text-center my-5 mx-auto" > <Spinner animation="border" variant="primary" /></p>
     }

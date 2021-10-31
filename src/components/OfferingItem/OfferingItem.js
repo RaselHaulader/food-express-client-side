@@ -10,7 +10,7 @@ const OfferingItem = ({ offer }) => {
                     <img className="w-50 mx-auto offering-img" src={offer.img} alt="" />
                 </div>
                 <div className="offer-item-details">
-                    <p className="pb-0 mb-0"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                    <p className="pb-0 mb-0"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></p>
                     <h6>{offer.title}</h6>
                     <small className="">{offer.info}</small>
                     <h5>${offer.price}</h5>
