@@ -24,6 +24,8 @@ Visit this site to know more about [Food Express](https://foodexpress-76cd4.web.
 - nodejs
 - fontawsome icon
 - google fonts
+- sweet alert
+- AOS (animation on scroll)
 
 ## Site Purpose
 - For connect with our Client
