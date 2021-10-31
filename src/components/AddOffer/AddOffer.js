@@ -5,6 +5,7 @@ import axios from 'axios';
 import './AddOffer.css';
 import addOrderSvg from '../../images/addOrder2.svg'
 import Footer from '../Footer/Footer';
+import swal from 'sweetalert';
 
 const AddOffer = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -14,7 +15,7 @@ const AddOffer = () => {
         axios.post("https://blooming-ravine-44681.herokuapp.com/addOffer", data)
             .then(res => {
                 if (res.data.acknowledged == true) {
-                    alert("SuccessFully added this Items")
+                    swal("Good job!", "This Item has been added!", "success");
                     reset();
                 }
                 console.log(res)

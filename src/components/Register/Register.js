@@ -6,6 +6,7 @@ import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import Spinner from 'react-bootstrap/Spinner';
 import Footer from '../Footer/Footer';
+import swal from 'sweetalert';
 
 
 const Register = () => {
@@ -42,7 +43,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("Thank You Your Order is placed")
+                    swal("Good job!", "Your order has been placed", "success");
                     reset()
                 }
                 console.log(data)
@@ -90,6 +91,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

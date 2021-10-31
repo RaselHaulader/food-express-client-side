@@ -7,6 +7,7 @@ import './CustomerOrders.css'
 import orderSvg from '../../images/userOrder.svg';
 import Spinner from 'react-bootstrap/Spinner';
 import Footer from '../Footer/Footer';
+import swal from 'sweetalert';
 
 
 const CustomerOrders = () => {
@@ -26,18 +27,32 @@ const CustomerOrders = () => {
 
 
     const handleCancel = (id) => {
-        const condition = window.confirm('Are You Sure?')
-        if (condition) {
-            axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
-                .then(res => {
-                    if (res.data.deletedCount > 0) {
-                        const rest = orders.filter(order => order._id !== id)
-                        setOrders(rest)
-                    }
-                    console.log(res)
-                })
-                .catch(err => console.log(err))
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
+                        .then(res => {
+                            if (res.data.deletedCount > 0) {
+                                const rest = orders.filter(order => order._id !== id)
+                                setOrders(rest)
+                            }
+                            console.log(res)
+                        })
+                        .catch(err => console.log(err))
+                   
+                        swal("Your order has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your order is safe!");
+                }
+            });
     }
     return (
         <div className="dark-body">

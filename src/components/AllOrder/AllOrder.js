@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import './AllOrder.css';
 import Spinner from 'react-bootstrap/Spinner';
 import Footer from '../Footer/Footer';
+import swal from 'sweetalert';
 
 
 
@@ -22,18 +23,32 @@ const AllOrder = () => {
     }, []);
 
     const handleDelete = id => {
-        const condition = window.confirm('Are You Sure?')
-        if (condition) {
-            axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
-                .then(res => {
-                    if (res.data.deletedCount > 0) {
-                        const rest = orders.filter(order => order._id !== id)
-                        setOrders(rest)
-                    }
-                    console.log(res)
-                })
-                .catch(err => console.log(err))
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`https://blooming-ravine-44681.herokuapp.com/order/${id}`)
+                        .then(res => {
+                            if (res.data.deletedCount > 0) {
+                                const rest = orders.filter(order => order._id !== id)
+                                setOrders(rest)
+                            }
+                            console.log(res)
+                        })
+                        .catch(err => console.log(err))
+
+                    swal("Order has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your Order is safe!");
+                }
+            });
     }
 
     const handleApproved = id => {
@@ -49,6 +64,7 @@ const AllOrder = () => {
                     console.log(orders)
                     const newOrders = [...orders]
                     setOrders(newOrders)
+                    swal("Good job!", "This Item has been Approved!", "success");
                 }
                 console.log(res.data)
             })
