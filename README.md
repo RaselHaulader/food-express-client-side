@@ -11,6 +11,7 @@ Visit this site to know more about [Food Express](https://foodexpress-76cd4.web.
 - firebase google authentication.
 - react router routing.
 - context api and react hooks for state management.
+- Responsive design
 
 ## The technology with which the site has been built
 - HTML
