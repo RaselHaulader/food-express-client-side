@@ -4,13 +4,13 @@ Visit this site to know more about [Food Express](https://foodexpress-76cd4.web.
 
 
 ## Site functionality
-- add items to database
-- delete items to database
+- User can see food details and place them in his/her order list
+- User can cancel his/her orders.
 - create items and save into database
-- update database items information
-- firebase google authentication
-- react router routing
-- context api and react hooks for state management
+- update orders status.
+- firebase google authentication.
+- react router routing.
+- context api and react hooks for state management.
 
 ## The technology with which the site has been built
 - HTML
