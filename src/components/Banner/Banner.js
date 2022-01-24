@@ -8,7 +8,7 @@ const Banner = () => {
             <div className="col-12 col-md-5  d-flex banner-details flex-column justify-content-center">
                 <div >
                     <h1 className="bold-text text-uppercase">Order Healthy <br /><span className="color-text">And Fresh Food</span> </h1>
-                    <p>Online food Delivery for hiring Food Foodota We appreciate your business, and we’ll do best to continue to give you the new kind.</p>
+                    <p>Online food delivery for hiring food  we appreciate your business, and we’ll do best to continue to give you the new kind.</p>
                     <button className="btn rounded-pill px-4 p-2 border ">Read More</button>
                 </div>
             </div>
